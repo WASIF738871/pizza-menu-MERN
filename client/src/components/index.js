@@ -1,3 +1,6 @@
-import PizzaCard from "./pizzaCard/PizzaCard";
+import Pizza from "./pizza/Pizza";
+import Header from "./header/Header";
+import Footer from "./footer/Footer";
+import Menu from "./menu/Menu";
 
-export { PizzaCard };
+export { Header, Pizza, Footer, Menu };
