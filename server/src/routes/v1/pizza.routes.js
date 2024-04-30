@@ -5,7 +5,7 @@ import { validate, authMiddleware, pizzaMiddleware, upload } from '../../middlew
 
 const router = express.Router();
 
-router.use(authMiddleware.protect);
+// router.use(authMiddleware.protect);
 
 router
   .route('/')
