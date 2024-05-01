@@ -21,21 +21,21 @@ const __filename = fileURLToPath(import.meta.url); // get the resolved path to t
 const __dirname = path.dirname(__filename); // get the name of the directory
 
 // GLOBAL MIDDLEWARES
-const corsOptions = {
-  origin: 'http://localhost:5173',
-  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-}
-app.use(cors(corsOptions));
+// const corsOptions = {
+//   origin: 'http://localhost:5173',
+//   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+// }
+app.use(cors());
 // Access-Control-Allow *
 app.options('*', cors());
 
 // Serving  static files
 app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 app.use(express.static(path.join(__dirname, '../build')));
-// Serve index.html for "/" routes
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname,"../build/index.html"));
-});
+// // Serve index.html for "/" routes
+// app.get("/", (req, res) => {
+//   res.sendFile(path.join(__dirname,"../build/index.html"));
+// });
 // Security HTTP headers
 app.use(helmet());
 
