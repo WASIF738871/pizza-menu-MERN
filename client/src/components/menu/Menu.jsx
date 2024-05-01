@@ -17,10 +17,15 @@ const Menu = () => {
   return (
     <main className="menu">
       <h2> Our menu</h2>
-      {pizzaList.length &&
-        pizzaList.map((pizza, index) => (
-          <Pizza key={pizza.id} pizza={pizza} />
-        ))}
+      {pizzaList.length ? (
+        <ul className="pizzas">
+          {pizzaList.map((pizza) => (
+            <Pizza key={pizza.id} pizza={pizza} />
+          ))}
+        </ul>
+      ) : (
+        <p>We're still working on menu. Please come back later :)</p>
+      )}
     </main>
   );
 };
