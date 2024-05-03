@@ -33,9 +33,9 @@ app.options('*', cors());
 app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 app.use(express.static(path.join(__dirname, '../build')));
 // // Serve index.html for "/" routes
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname,"../build/index.html"));
-});
+// app.get("/", (req, res) => {
+//   res.sendFile(path.join(__dirname,"../build/index.html"));
+// });
 // Security HTTP headers
 app.use(helmet());
 
