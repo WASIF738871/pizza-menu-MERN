@@ -31,11 +31,8 @@ app.options('*', cors());
 
 // Serving  static files
 app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
-app.use(express.static(path.join(__dirname, '../build')));
-// // Serve index.html for "/" routes
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname,"../build/index.html"));
-});
+app.use(express.static(path.join(__dirname, "..", "build")));
+
 // Security HTTP headers
 app.use(helmet());
 
@@ -69,6 +66,11 @@ app.use(
 
 // ROUTES
 app.use('/api/v1', routes);
+
+// Serve index.html for all routes
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'build', 'index.html'));
+});
 
 // Catch-all route for handling unknown endpoints
 app.all('*', (req, res, next) => {
